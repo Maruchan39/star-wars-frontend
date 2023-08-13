@@ -6,7 +6,7 @@ import {
   SELECT_FILM,
   FilmsActionTypes,
   Film,
-} from "./actions";
+} from "../actions/filmsActions";
 
 export interface FilmsState {
   films: Film[];

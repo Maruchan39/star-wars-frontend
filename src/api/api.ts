@@ -3,7 +3,12 @@ import {
   fetchFilmsRequest,
   fetchFilmsSuccess,
   fetchFilmsFailure,
-} from "../store/actions";
+} from "../store/actions/filmsActions";
+import {
+  fetchCharactersFailure,
+  fetchCharactersRequest,
+  fetchCharactersSuccess,
+} from "../store/actions/charactersActions";
 
 export const fetchFilms = async (dispatch: Dispatch) => {
   dispatch(fetchFilmsRequest());
@@ -14,4 +19,23 @@ export const fetchFilms = async (dispatch: Dispatch) => {
   } catch (error) {
     dispatch(fetchFilmsFailure(error));
   }
+};
+
+export const fetchCharacters = async (
+  dispatch: Dispatch,
+  characters: string[]
+) => {
+  const charactersData = [];
+  dispatch(fetchCharactersRequest());
+  for (const url of characters) {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      charactersData.push(data);
+    } catch (error) {
+      dispatch(fetchCharactersFailure(error));
+    }
+  }
+
+  dispatch(fetchCharactersSuccess(charactersData));
 };

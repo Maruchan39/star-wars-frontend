@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Film } from "../store/actions";
+import { Film } from "../store/actions/filmsActions";
 import "./FilmsList.css";
 import { FilmContainer } from "./FilmContainer";
 

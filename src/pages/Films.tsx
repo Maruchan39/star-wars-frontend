@@ -1,8 +1,9 @@
 import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FilmsState } from "../store/reducers";
+import { FilmsState } from "../store/reducers/filmsReducer";
 import { fetchFilms } from "../api/api";
 import { FilmsList } from "../components/FilmsList";
+import { CharactersList } from "../components/CharactersList";
 import "./Films.css";
 
 export const Films: FC = () => {
@@ -32,7 +33,8 @@ export const Films: FC = () => {
 
   return (
     <div className="films">
-     <FilmsList films={films} />
+      <FilmsList films={films} />
+      <CharactersList charactersList={["https://swapi.dev/api/people/2/"]} />
     </div>
   );
 };
