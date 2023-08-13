@@ -10,9 +10,17 @@ interface FilmsListProps {
 export const FilmsList: FC<FilmsListProps> = ({ films }) => {
   return (
     <div className="container">
-      {films.map((film) => (
-        <FilmCard key={film.episode_id} film={film} />
-      ))}
+      {films.map((film) => {
+        const { episode_id, title, release_date } = film;
+        return (
+          <FilmCard
+            key={episode_id}
+            episode_id={episode_id}
+            title={title}
+            release_date={release_date}
+          />
+        );
+      })}
     </div>
   );
 };
