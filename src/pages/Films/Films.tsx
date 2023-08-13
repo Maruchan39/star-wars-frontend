@@ -1,9 +1,9 @@
 import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FilmsState } from "../store/reducers/filmsReducer";
-import { fetchFilms } from "../api/api";
-import { FilmsList } from "../components/FilmsList";
-import { CharactersList } from "../components/CharactersList";
+import { FilmsState } from "../../store/reducers/filmsReducer";
+import { fetchFilms } from "../../api/api";
+import { FilmsList } from "../../components/FilmsList/FilmsList";
+import { CharactersList } from "../../components/CharactersList/CharactersList";
 import "./Films.css";
 
 export const Films: FC = () => {

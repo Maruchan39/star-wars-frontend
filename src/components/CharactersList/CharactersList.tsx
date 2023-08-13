@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CharactersState } from "../store/reducers/charactersReducer";
-import { fetchCharacters } from "../api/api";
+import { CharactersState } from "../../store/reducers/charactersReducer";
+import { fetchCharacters } from "../../api/api";
 
 interface CharactersListProps {
   charactersList: string[] | null;

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useDispatch } from "react-redux";
-import { Film } from "../store/actions/filmsActions";
-import { selectFilm } from "../store/actions/filmsActions";
+import { Film } from "../../store/actions/filmsActions";
+import { selectFilm } from "../../store/actions/filmsActions";
 import "./FilmContainer.css";
 
 interface FilmContainerProp {
