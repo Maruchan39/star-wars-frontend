@@ -9,7 +9,8 @@ import "./Films.css";
 export const Films: FC = () => {
   const dispatch = useDispatch();
   const state = useSelector((state: { films: FilmsState }) => state);
-  const { films, loading, error } = state.films;
+  const { films, loading, error, selectedFilm } = state.films;
+  const charactersList = films.find((film) => film.episode_id === selectedFilm)?.characters || null;
 
   useEffect(() => {
     fetchFilms(dispatch);
@@ -34,7 +35,7 @@ export const Films: FC = () => {
   return (
     <div className="films">
       <FilmsList films={films} />
-      <CharactersList charactersList={["https://swapi.dev/api/people/2/"]} />
+      <CharactersList charactersList={charactersList} />
     </div>
   );
 };

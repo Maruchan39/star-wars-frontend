@@ -11,7 +11,7 @@ export const FilmsList: FC<FilmsListProps> = ({ films }) => {
   return (
     <div className="container">
       {films.map((film) => (
-        <FilmContainer film={film} />
+        <FilmContainer key={film.episode_id} film={film} />
       ))}
     </div>
   );

@@ -4,7 +4,7 @@ import { CharactersState } from "../store/reducers/charactersReducer";
 import { fetchCharacters } from "../api/api";
 
 interface CharactersListProps {
-  charactersList: string[];
+  charactersList: string[] | null;
 }
 
 export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
@@ -13,7 +13,7 @@ export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
   const { characters, loading, error } = state.characters;
 
   useEffect(() => {
-    fetchCharacters(dispatch, charactersList);
+    charactersList && fetchCharacters(dispatch, charactersList);
   }, [dispatch]);
 
   if (loading) {
@@ -34,5 +34,5 @@ export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
 
   console.log(characters);
 
-  return <div>Characters </div>;
+  return <div>Characters Table</div>;
 };
