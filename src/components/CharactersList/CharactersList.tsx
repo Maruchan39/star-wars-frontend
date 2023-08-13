@@ -2,6 +2,7 @@ import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CharactersState } from "../../store/reducers/charactersReducer";
 import { fetchCharacters } from "../../api/api";
+import { CharactersTable } from "./CharactersTable";
 
 interface CharactersListProps {
   charactersList: string[] | null;
@@ -34,5 +35,9 @@ export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
 
   console.log(characters);
 
-  return <div>Characters Table</div>;
+  return (
+    <div>
+      <CharactersTable characters={characters} />
+    </div>
+  );
 };
