@@ -2,13 +2,13 @@ import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { Film } from "../../store/actions/filmsActions";
 import { selectFilm } from "../../store/actions/filmsActions";
-import "./FilmContainer.css";
+import "./FilmCard.css";
 
 interface FilmContainerProp {
   film: Film;
 }
 
-export const FilmContainer: FC<FilmContainerProp> = ({ film }) => {
+export const FilmCard: FC<FilmContainerProp> = ({ film }) => {
   const dispatch = useDispatch();
 
   const { episode_id, title, release_date } = film;

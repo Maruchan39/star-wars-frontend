@@ -10,12 +10,14 @@ interface CharactersListProps {
 
 export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
   const dispatch = useDispatch();
-  const state = useSelector((state: { characters: CharactersState }) => state);
+  const state = useSelector(
+    (state: { characters: CharactersState; }) => state
+  );
   const { characters, loading, error } = state.characters;
 
   useEffect(() => {
     charactersList && fetchCharacters(dispatch, charactersList);
-  }, [dispatch]);
+  }, [dispatch, charactersList]);
 
   if (loading) {
     return (
