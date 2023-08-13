@@ -8,7 +8,7 @@ import {
 } from "./actions";
 
 export interface FilmsState {
-  films: any[];
+  films: Film[];
   loading: boolean;
   error: string | null;
 }
@@ -23,7 +23,6 @@ const filmsReducer: Reducer<FilmsState, FilmsActionTypes> = (
   state = initialState,
   action
 ) => {
-  console.log(state.films)
   switch (action.type) {
     case FETCH_FILMS_REQUEST:
       return {
