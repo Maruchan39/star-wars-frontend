@@ -1,18 +1,25 @@
-async function logMovies() {
-  try {
-    const response = await fetch("https://swapi.dev/api/films");
-    if (!response.ok) {
-      throw new Error("Network response was not OK");
-    }
+import { FC, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { FilmsState } from "../store/reducers";
+import { fetchFilms } from "../store/api";
 
-    const movies = await response.json();
-    console.log(movies);
-  } catch (error) {
-    console.error("There has been a problem with your fetch operation:", error);
+export const Films: FC = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state: {films: FilmsState}) => state);
+  const { films, loading, error } = state.films;
+
+
+  useEffect(() => {
+    fetchFilms(dispatch);
+  }, [dispatch]);
+
+  if (loading) {
+    return <p>Loading...</p>;
   }
-}
 
-export const Films = () => {
-  logMovies();
-  return <p>Films</p>;
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  return <h1>Films</h1>;
 };
