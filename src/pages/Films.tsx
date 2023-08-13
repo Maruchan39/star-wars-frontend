@@ -6,7 +6,7 @@ import { fetchFilms } from "../store/api";
 export const Films: FC = () => {
   const dispatch = useDispatch();
   const state = useSelector((state: {films: FilmsState}) => state);
-  const { films, loading, error } = state.films;
+  const { loading, error } = state.films;
 
 
   useEffect(() => {

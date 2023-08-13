@@ -1,19 +1,20 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { About } from "./pages/About";
 import { Films } from "./pages/Films";
+import { Sidebar } from "./components/Sidebar";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { About } from "./pages/About";
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Films />,
-    },
-    {
-      path: "/about",
-      element: <About />,
-    },
-  ]);
-  return <RouterProvider router={router} />;
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Sidebar />
+        <Routes>
+          <Route path="/" element={<Films />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
