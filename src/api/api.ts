@@ -3,7 +3,7 @@ import {
   fetchFilmsRequest,
   fetchFilmsSuccess,
   fetchFilmsFailure,
-} from "./actions";
+} from "../store/actions";
 
 export const fetchFilms = async (dispatch: Dispatch) => {
   dispatch(fetchFilmsRequest());

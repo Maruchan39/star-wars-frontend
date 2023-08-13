@@ -1,8 +1,9 @@
-import { Action } from 'redux';
+import { Action } from "redux";
 
-export const FETCH_FILMS_REQUEST = 'FETCH_FILMS_REQUEST';
-export const FETCH_FILMS_SUCCESS = 'FETCH_FILMS_SUCCESS';
-export const FETCH_FILMS_FAILURE = 'FETCH_FILMS_FAILURE';
+export const FETCH_FILMS_REQUEST = "FETCH_FILMS_REQUEST";
+export const FETCH_FILMS_SUCCESS = "FETCH_FILMS_SUCCESS";
+export const FETCH_FILMS_FAILURE = "FETCH_FILMS_FAILURE";
+export const SELECT_FILM = "SELECT_FILM";
 
 interface FetchFilmsRequestAction extends Action<typeof FETCH_FILMS_REQUEST> {}
 interface FetchFilmsSuccessAction extends Action<typeof FETCH_FILMS_SUCCESS> {
@@ -12,17 +13,22 @@ interface FetchFilmsFailureAction extends Action<typeof FETCH_FILMS_FAILURE> {
   payload: string;
 }
 
+interface SelectFilmAction extends Action<typeof SELECT_FILM> {
+  payload: number;
+}
+
 export type FilmsActionTypes =
   | FetchFilmsRequestAction
   | FetchFilmsSuccessAction
-  | FetchFilmsFailureAction;
+  | FetchFilmsFailureAction
+  | SelectFilmAction;
 
 export interface Film {
   characters: string[];
   created: string;
   director: string;
   edited: string;
-  episode_id: string;
+  episode_id: number;
   opening_crawl: string;
   planets: string[];
   producer: string;
@@ -46,4 +52,9 @@ export const fetchFilmsSuccess = (films: Film[]): FetchFilmsSuccessAction => ({
 export const fetchFilmsFailure = (error: any): FetchFilmsFailureAction => ({
   type: FETCH_FILMS_FAILURE,
   payload: error,
+});
+
+export const selectFilm = (film: number): SelectFilmAction => ({
+  type: SELECT_FILM,
+  payload: film,
 });
