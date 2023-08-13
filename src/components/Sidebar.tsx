@@ -8,7 +8,7 @@ export const Sidebar: FC = () => {
       <nav>
         <ul>
           <Link to="about">About</Link>
-          <Link to="films">Films</Link>
+          <Link to="">Films</Link>
         </ul>
       </nav>
     </div>
