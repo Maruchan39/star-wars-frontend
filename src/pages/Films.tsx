@@ -2,12 +2,12 @@ import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FilmsState } from "../store/reducers";
 import { fetchFilms } from "../store/api";
+import "./Films.css";
 
 export const Films: FC = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state: {films: FilmsState}) => state);
+  const state = useSelector((state: { films: FilmsState }) => state);
   const { loading, error } = state.films;
-
 
   useEffect(() => {
     fetchFilms(dispatch);
@@ -21,5 +21,9 @@ export const Films: FC = () => {
     return <p>Error: {error}</p>;
   }
 
-  return <h1>Films</h1>;
+  return (
+    <div className="films">
+      <h1>Films</h1>
+    </div>
+  );
 };
