@@ -17,7 +17,6 @@ export const Films: FC = () => {
       null,
     [selectedFilm, films]
   );
-  console.log(charactersList);
 
   useEffect(() => {
     fetchFilms(dispatch);

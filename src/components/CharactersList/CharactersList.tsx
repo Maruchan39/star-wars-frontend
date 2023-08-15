@@ -25,13 +25,11 @@ export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
 
   if (error) {
     return (
-      <div>
+      <div className="charactersListContainer">
         <p>Error: {error}</p>
       </div>
     );
   }
-
-  console.log(characters);
 
   return (
     <div className="charactersListContainer">

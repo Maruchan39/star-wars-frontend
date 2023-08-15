@@ -5,7 +5,6 @@ import "./Sidebar.css";
 export const Sidebar: FC = () => {
   const location = useLocation();
   const isLinkActive = (to: string) => location.pathname === to;
-  console.log(location.pathname);
   return (
     <div className="sidebar">
       <nav className="navigationPanel">
