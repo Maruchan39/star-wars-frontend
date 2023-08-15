@@ -1,4 +1,5 @@
 import { Dispatch } from "redux";
+import camelcaseKeys from "camelcase-keys";
 import {
   fetchFilmsRequest,
   fetchFilmsSuccess,
@@ -17,7 +18,8 @@ export const fetchFilms = async (dispatch: Dispatch) => {
   try {
     const response = await fetch(FILMS_URL);
     const data = await response.json();
-    dispatch(fetchFilmsSuccess(data.results));
+    const parsedResults = camelcaseKeys(data.results);
+    dispatch(fetchFilmsSuccess(camelcaseKeys(parsedResults)));
   } catch (error) {
     dispatch(fetchFilmsFailure(error as Error));
   }
@@ -38,6 +40,6 @@ export const fetchCharacters = async (
       dispatch(fetchCharactersFailure(error as Error));
     }
   }
-
-  dispatch(fetchCharactersSuccess(charactersData));
+  const parsedCharactersData = camelcaseKeys(charactersData);
+  dispatch(fetchCharactersSuccess(parsedCharactersData));
 };

@@ -22,13 +22,13 @@ export const CharactersTable: FC<CharactersTableProps> = ({ characters }) => {
           </thead>
           <tbody>
             {characters.map((character) => {
-              const { birth_year, name, mass, gender } = character;
-              const rowIdentifier = `${name}_${birth_year}`;
+              const { birthYear, name, mass, gender } = character;
+              const rowIdentifier = `${name}_${birthYear}`;
               return (
                 <CharacterRow
                   key={rowIdentifier}
                   name={name}
-                  birth_year={birth_year}
+                  birthYear={birthYear}
                   mass={mass}
                   gender={gender}
                 />

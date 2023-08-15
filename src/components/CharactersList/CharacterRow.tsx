@@ -3,21 +3,21 @@ import "./CharacterRow.css";
 
 interface CharacterRowProps {
   name: string;
-  birth_year: string;
+  birthYear: string;
   gender: string;
   mass: string;
 }
 
 export const CharacterRow: FC<CharacterRowProps> = ({
   name,
-  birth_year,
+  birthYear,
   gender,
   mass,
 }) => {
   return (
     <tr>
       <td>{name}</td>
-      <td>{birth_year}</td>
+      <td>{birthYear}</td>
       <td>{gender}</td>
       <td>{mass}</td>
     </tr>

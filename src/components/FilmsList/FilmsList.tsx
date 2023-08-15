@@ -11,13 +11,13 @@ export const FilmsList: FC<FilmsListProps> = ({ films }) => {
   return (
     <div className="filmsListContainer">
       {films.map((film) => {
-        const { episode_id, title, release_date } = film;
+        const { episodeId, title, releaseDate } = film;
         return (
           <FilmCard
-            key={episode_id}
-            episode_id={episode_id}
+            key={episodeId}
+            episodeId={episodeId}
             title={title}
-            release_date={release_date}
+            releaseDate={releaseDate}
           />
         );
       })}

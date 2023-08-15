@@ -21,7 +21,7 @@ export type CharactersActionTypes =
   | FetchCharactersFailureAction;
 
 export interface Character {
-  birth_year: string;
+  birthYear: string;
   gender: string;
   mass: string;
   name: string;

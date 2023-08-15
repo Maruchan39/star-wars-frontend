@@ -4,29 +4,29 @@ import { selectFilm } from "../../store/actions/filmsActions";
 import "./FilmCard.css";
 
 interface FilmContainerProp {
-  episode_id: number;
+  episodeId: number;
   title: string;
-  release_date: string;
+  releaseDate: string;
 }
 
 export const FilmCard: FC<FilmContainerProp> = ({
-  episode_id,
+  episodeId,
   title,
-  release_date,
+  releaseDate,
 }) => {
   const dispatch = useDispatch();
 
   return (
-    <div key={episode_id} className="filmCard">
+    <div key={episodeId} className="filmCard">
       <h2>{title}</h2>
-      <p>Release date: {release_date}</p>
+      <p>Release date: {releaseDate}</p>
       <button
         className="button"
-        onClick={() => dispatch(selectFilm(episode_id))}
+        onClick={() => dispatch(selectFilm(episodeId))}
       >
         show people
       </button>
-      <h3 className={"episodeId"}>Episode {episode_id}</h3>
+      <h3 className={"episodeId"}>Episode {episodeId}</h3>
     </div>
   );
 };

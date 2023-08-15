@@ -25,8 +25,8 @@ export type FilmsActionTypes =
 
 export interface Film {
   characters: string[];
-  episode_id: number;
-  release_date: string;
+  episodeId: number;
+  releaseDate: string;
   title: string;
 }
 
