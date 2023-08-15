@@ -17,12 +17,16 @@ export const FilmCard: FC<FilmContainerProp> = ({
   const dispatch = useDispatch();
 
   return (
-    <div key={episode_id} className="film">
+    <div key={episode_id} className="filmCard">
       <h2>{title}</h2>
       <p>Release date: {release_date}</p>
-      <button onClick={() => dispatch(selectFilm(episode_id))}>
+      <button
+        className="button"
+        onClick={() => dispatch(selectFilm(episode_id))}
+      >
         show people
       </button>
+      <h3 className={"episodeId"}>Episode {episode_id}</h3>
     </div>
   );
 };

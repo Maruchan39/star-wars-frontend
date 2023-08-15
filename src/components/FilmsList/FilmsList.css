@@ -1,7 +1,6 @@
 .filmsListContainer {
   display: flex;
   overflow-x: auto;
-  white-space: nowrap;
   width: 90%;
   height: 35%;
 }
