@@ -5,11 +5,13 @@ import "./Sidebar.css";
 export const Sidebar: FC = () => {
   return (
     <div className="sidebar">
-      <nav>
-        <ul>
-          <Link to="about">About</Link>
-          <Link to="">Films</Link>
-        </ul>
+      <nav className="navigationPanel">
+        <Link className="navigationItem" to="about">
+          About
+        </Link>
+        <Link className="navigationItem" to="">
+          Films
+        </Link>
       </nav>
     </div>
   );
