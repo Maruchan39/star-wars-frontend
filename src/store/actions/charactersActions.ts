@@ -39,8 +39,8 @@ export const fetchCharactersSuccess = (
 });
 
 export const fetchCharactersFailure = (
-  error: any
+  error: Error
 ): FetchCharactersFailureAction => ({
   type: FETCH_CHARACTERS_FAILURE,
-  payload: error,
+  payload: error.message,
 });

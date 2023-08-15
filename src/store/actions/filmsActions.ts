@@ -39,9 +39,9 @@ export const fetchFilmsSuccess = (films: Film[]): FetchFilmsSuccessAction => ({
   payload: films,
 });
 
-export const fetchFilmsFailure = (error: any): FetchFilmsFailureAction => ({
+export const fetchFilmsFailure = (error: Error): FetchFilmsFailureAction => ({
   type: FETCH_FILMS_FAILURE,
-  payload: error,
+  payload: error.message,
 });
 
 export const selectFilm = (film: number): SelectFilmAction => ({
