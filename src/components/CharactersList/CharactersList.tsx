@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CharactersState } from "../../store/reducers/charactersReducer";
 import { fetchCharacters } from "../../api/api";
 import { CharactersTable } from "./CharactersTable";
+import "./CharactersList.css";
 
 interface CharactersListProps {
   charactersList: string[] | null;
@@ -10,9 +11,7 @@ interface CharactersListProps {
 
 export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
   const dispatch = useDispatch();
-  const state = useSelector(
-    (state: { characters: CharactersState; }) => state
-  );
+  const state = useSelector((state: { characters: CharactersState }) => state);
   const { characters, loading, error } = state.characters;
 
   useEffect(() => {
@@ -21,7 +20,7 @@ export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
 
   if (loading) {
     return (
-      <div className="films">
+      <div>
         <p>Loading...</p>
       </div>
     );
@@ -29,7 +28,7 @@ export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
 
   if (error) {
     return (
-      <div className="films">
+      <div>
         <p>Error: {error}</p>
       </div>
     );
@@ -38,7 +37,7 @@ export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
   console.log(characters);
 
   return (
-    <div>
+    <div className="charactersListContainer">
       <CharactersTable characters={characters} />
     </div>
   );

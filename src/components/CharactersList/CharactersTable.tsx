@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Character } from "../../store/actions/charactersActions";
 import { CharacterRow } from "./CharacterRow";
+import "./CharactersTable.css";
 
 interface CharactersTableProps {
   characters: Character[] | null;
@@ -15,6 +16,7 @@ export const CharactersTable: FC<CharactersTableProps> = ({ characters }) => {
             <tr>
               <th>Name</th>
               <th>Birth Year</th>
+              <th>Gender</th>
               <th>Mass</th>
             </tr>
           </thead>
