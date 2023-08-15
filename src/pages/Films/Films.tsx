@@ -4,6 +4,7 @@ import { FilmsState } from "../../store/reducers/filmsReducer";
 import { fetchFilms } from "../../api/api";
 import { FilmsList } from "../../components/FilmsList/FilmsList";
 import { CharactersList } from "../../components/CharactersList/CharactersList";
+import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 import "./Films.css";
 
 export const Films: FC = () => {
@@ -25,11 +26,7 @@ export const Films: FC = () => {
   useEffect(() => {}, [selectedFilm]);
 
   if (loading) {
-    return (
-      <div className="films">
-        <p>Loading...</p>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (error) {

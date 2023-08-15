@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CharactersState } from "../../store/reducers/charactersReducer";
 import { fetchCharacters } from "../../api/api";
 import { CharactersTable } from "./CharactersTable";
+import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
 import "./CharactersList.css";
 
 interface CharactersListProps {
@@ -19,11 +20,7 @@ export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
   }, [dispatch, charactersList]);
 
   if (loading) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (error) {
