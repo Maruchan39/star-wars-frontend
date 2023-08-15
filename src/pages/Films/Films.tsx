@@ -13,14 +13,15 @@ export const Films: FC = () => {
   const { films, loading, error, selectedFilm } = state.films;
   const charactersList = useMemo(
     () =>
-      films.find((film) => film.episode_id === selectedFilm)?.characters ||
-      null,
+      films.find((film) => film.episode_id === selectedFilm)?.characters || [],
     [selectedFilm, films]
   );
 
+  console.log(films);
+
   useEffect(() => {
-    fetchFilms(dispatch);
-  }, [dispatch]);
+    films.length === 0 && fetchFilms(dispatch);
+  }, [dispatch, films.length]);
 
   useEffect(() => {}, [selectedFilm]);
 
