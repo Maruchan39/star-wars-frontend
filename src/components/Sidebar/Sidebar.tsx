@@ -2,6 +2,11 @@ import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Sidebar.css";
 
+enum Routes {
+  FILMS = "/",
+  ABOUT = "/about",
+}
+
 export const Sidebar: FC = () => {
   const location = useLocation();
   const isLinkActive = (to: string) => location.pathname === to;
@@ -10,17 +15,17 @@ export const Sidebar: FC = () => {
       <nav className="navigationPanel">
         <Link
           className={`navigationItem ${
-            isLinkActive("/about") && "navigationItemActive"
+            isLinkActive(Routes.ABOUT) && "navigationItemActive"
           }`}
-          to="/about"
+          to={Routes.ABOUT}
         >
           About
         </Link>
         <Link
           className={`navigationItem ${
-            isLinkActive("/") && "navigationItemActive"
+            isLinkActive(Routes.FILMS) && "navigationItemActive"
           }`}
-          to="/"
+          to={Routes.FILMS}
         >
           Films
         </Link>
