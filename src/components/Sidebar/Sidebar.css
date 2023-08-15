@@ -2,7 +2,6 @@
   order: 1;
   width: 20%;
   height: 100%;
-  border-right: 1px solid black;
 }
 
 .navigationPanel {
@@ -36,4 +35,8 @@
   background-color: black;
   color: white;
   border-color: black;
+}
+
+.navigationItemActive {
+  font-weight: bold;
 }
