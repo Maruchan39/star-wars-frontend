@@ -1,8 +1,8 @@
 import { Route, BrowserRouter, Routes } from "react-router-dom";
-import { Films } from "./pages/Films/Films";
-import { Sidebar } from "./components/Sidebar/Sidebar";
-import { About } from "./pages/About/About";
-import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
+import { Films } from "./pages";
+import { Sidebar } from "./components";
+import { About } from "./pages";
+import { NotFoundPage } from "./pages";
 import "./App.css";
 
 function App() {

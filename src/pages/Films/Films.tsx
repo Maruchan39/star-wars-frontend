@@ -2,9 +2,9 @@ import { FC, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FilmsState } from "../../store/reducers/filmsReducer";
 import { fetchFilms } from "../../api/api";
-import { FilmsList } from "../../components/FilmsList/FilmsList";
-import { CharactersList } from "../../components/CharactersList/CharactersList";
-import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
+import { FilmsList } from "../../components";
+import { CharactersList } from "../../components";
+import { LoadingSpinner } from "../../components";
 import "./Films.css";
 
 export const Films: FC = () => {
