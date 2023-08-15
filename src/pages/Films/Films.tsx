@@ -21,8 +21,6 @@ export const Films: FC = () => {
     films.length === 0 && fetchFilms(dispatch);
   }, [dispatch, films.length]);
 
-  useEffect(() => {}, [selectedFilm]);
-
   if (loading) {
     return <LoadingSpinner />;
   }
