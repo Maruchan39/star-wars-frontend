@@ -4,7 +4,7 @@ import { CharacterRow } from "./CharacterRow";
 import "./CharactersTable.css";
 
 interface CharactersTableProps {
-  characters: Character[] | null;
+  characters: Character[];
 }
 
 export const CharactersTable: FC<CharactersTableProps> = ({ characters }) => {

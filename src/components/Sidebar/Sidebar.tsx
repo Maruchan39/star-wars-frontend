@@ -1,11 +1,7 @@
 import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Routes } from "../../routes";
 import "./Sidebar.css";
-
-enum Routes {
-  FILMS = "/",
-  ABOUT = "/about",
-}
 
 export const Sidebar: FC = () => {
   const location = useLocation();

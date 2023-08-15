@@ -7,7 +7,7 @@ import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
 import "./CharactersList.css";
 
 interface CharactersListProps {
-  charactersList: string[] | null;
+  charactersList: string[];
 }
 
 export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
@@ -16,8 +16,9 @@ export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
   const { characters, loading, error } = state.characters;
 
   useEffect(() => {
-    charactersList && fetchCharacters(dispatch, charactersList);
-  }, [dispatch, charactersList]);
+    charactersList.length !== characters.length &&
+      fetchCharacters(dispatch, charactersList);
+  }, [dispatch, charactersList, characters]);
 
   if (loading) {
     return <LoadingSpinner />;
