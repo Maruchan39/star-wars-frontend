@@ -16,9 +16,8 @@ export const CharactersList: FC<CharactersListProps> = ({ charactersList }) => {
   const { characters, loading, error } = state.characters;
 
   useEffect(() => {
-    charactersList.length !== characters.length &&
-      fetchCharacters(dispatch, charactersList);
-  }, [dispatch, charactersList, characters]);
+    charactersList.length && fetchCharacters(dispatch, charactersList);
+  }, [dispatch, charactersList]);
 
   if (loading) {
     return <LoadingSpinner />;
