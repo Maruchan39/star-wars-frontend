@@ -29,17 +29,19 @@ export const fetchCharacters = async (
   dispatch: Dispatch,
   characters: string[]
 ) => {
-  const charactersData = [];
   dispatch(fetchCharactersRequest());
-  for (const url of characters) {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      charactersData.push(data);
-    } catch (error) {
-      dispatch(fetchCharactersFailure(error as Error));
-    }
-  }
+  const charactersData = await Promise.all(
+    characters.map(async (url) => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        dispatch(fetchCharactersFailure(error as Error));
+      }
+    })
+  );
+
   const parsedCharactersData = camelcaseKeys(charactersData);
   dispatch(fetchCharactersSuccess(parsedCharactersData));
 };
